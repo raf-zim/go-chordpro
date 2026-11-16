@@ -1,0 +1,13 @@
+Comments and Annotations
+========================
+
+Plain comment
+/Italic comment/
+-----------------
+| Boxed comment |
+-----------------
+Slowly G    louder C
+Start soft, then loud
+Lyrics with no chords at all
+G C D
+   chords with no lyrics

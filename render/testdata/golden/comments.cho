@@ -1,0 +1,8 @@
+{title: Comments and Annotations}
+# A source comment that should not appear
+{comment: Plain comment}
+{ci: Italic comment}
+{cb: Boxed comment}
+[*Slowly]Start [G]soft, [*louder]then [C]loud
+Lyrics with no chords at all
+[G] [C] [D] chords with no lyrics

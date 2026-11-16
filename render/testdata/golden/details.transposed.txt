@@ -1,0 +1,12 @@
+The Golden Test
+===============
+A made-up song for testing
+Artist: Test Band
+Key: A
+Capo: 2
+
+
+A              D
+Every line has chords
+E           A             F#m
+Some in mid-word, like golden

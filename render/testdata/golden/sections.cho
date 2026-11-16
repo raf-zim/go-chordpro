@@ -1,0 +1,30 @@
+{title: Sections}
+
+{start_of_verse: Verse 1}
+[G]First verse, first [D]line
+[C]First verse, second [G]line
+{end_of_verse}
+
+{start_of_chorus}
+[C]This is the [G]chorus
+[D]Sing it a[G]gain
+{end_of_chorus}
+
+{sov}
+[Em]Second verse [C]short form
+{eov}
+
+{chorus}
+
+{start_of_bridge: Bridge}
+[Am]A bridge goes [D]here
+{end_of_bridge}
+
+{start_of_tab}
+e|-----0-----|
+B|---1---1---|
+{end_of_tab}
+
+{start_of_grid}
+| G . . . | C . . . |
+{end_of_grid}

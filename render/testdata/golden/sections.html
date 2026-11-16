@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Sections</title>
+<style>
+body { font-family: system-ui, sans-serif; max-width: 48rem; margin: 2rem auto; padding: 0 1rem; color: #222; }
+header h1 { margin-bottom: 0.2em; }
+header .meta { color: #555; font-size: 0.9em; }
+section { margin: 1.2em 0; }
+section.chorus { font-style: italic; border-left: 3px solid #ccc; padding-left: 0.8em; }
+section.tab pre { background: #f6f6f6; padding: 0.6em; border-radius: 4px; overflow-x: auto; }
+.section-label { font-weight: 600; color: #555; margin-bottom: 0.3em; }
+p.line { margin: 0 0 0.6em 0; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; line-height: 1.1; white-space: pre-wrap; }
+p.line .pair { display: inline-flex; flex-direction: column; align-items: flex-start; vertical-align: bottom; }
+p.line .chord { color: #b00; font-weight: 600; }
+p.line .annotation { color: #06c; font-style: italic; }
+p.line .lyric { white-space: pre; }
+p.comment { margin: 0.4em 0; color: #555; }
+p.comment.italic { font-style: italic; }
+p.comment.box { border: 1px solid #aaa; padding: 0.3em 0.6em; display: inline-block; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Sections</h1>
+</header>
+<main>
+  <p class="line">&nbsp;</p>
+<section class="verse">
+  <p class="section-label">Verse 1</p>
+  <p class="line"><span class="pair"><span class="chord">G</span><span class="lyric">First verse, first </span></span><span class="pair"><span class="chord">D</span><span class="lyric">line</span></span></p>
+  <p class="line"><span class="pair"><span class="chord">C</span><span class="lyric">First verse, second </span></span><span class="pair"><span class="chord">G</span><span class="lyric">line</span></span></p>
+</section>
+  <p class="line">&nbsp;</p>
+<section class="chorus">
+  <p class="section-label">Chorus</p>
+  <p class="line"><span class="pair"><span class="chord">C</span><span class="lyric">This is the </span></span><span class="pair"><span class="chord">G</span><span class="lyric">chorus</span></span></p>
+  <p class="line"><span class="pair"><span class="chord">D</span><span class="lyric">Sing it a</span></span><span class="pair"><span class="chord">G</span><span class="lyric">gain</span></span></p>
+</section>
+  <p class="line">&nbsp;</p>
+<section class="verse">
+  <p class="section-label">Verse</p>
+  <p class="line"><span class="pair"><span class="chord">Em</span><span class="lyric">Second verse </span></span><span class="pair"><span class="chord">C</span><span class="lyric">short form</span></span></p>
+</section>
+  <p class="line">&nbsp;</p>
+<section class="chorus">
+  <p class="section-label">Chorus</p>
+  <p class="line"><span class="pair"><span class="chord">C</span><span class="lyric">This is the </span></span><span class="pair"><span class="chord">G</span><span class="lyric">chorus</span></span></p>
+  <p class="line"><span class="pair"><span class="chord">D</span><span class="lyric">Sing it a</span></span><span class="pair"><span class="chord">G</span><span class="lyric">gain</span></span></p>
+</section>
+  <p class="line">&nbsp;</p>
+<section class="bridge">
+  <p class="section-label">Bridge</p>
+  <p class="line"><span class="pair"><span class="chord">Am</span><span class="lyric">A bridge goes </span></span><span class="pair"><span class="chord">D</span><span class="lyric">here</span></span></p>
+</section>
+  <p class="line">&nbsp;</p>
+<section class="tab">
+  <p class="section-label">Tab</p>
+  <pre>
+e|-----0-----|
+B|---1---1---|
+  </pre>
+</section>
+  <p class="line">&nbsp;</p>
+<section class="grid">
+  <p class="section-label">Grid</p>
+  <p class="line"><span class="lyric">| G . . . | C . . . |</span></p>
+</section>
+</main>
+</body></html>

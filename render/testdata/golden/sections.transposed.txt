@@ -1,0 +1,43 @@
+Sections
+========
+
+
+[Verse 1]
+A                  E
+First verse, first line
+D                   A
+First verse, second line
+
+
+[Chorus]
+D           A
+This is the chorus
+E        A
+Sing it again
+
+
+[Verse]
+F#m          D
+Second verse short form
+
+
+[Chorus]
+D           A
+This is the chorus
+E        A
+Sing it again
+
+
+[Bridge]
+Bm            E
+A bridge goes here
+
+
+[Tab]
+e|-----0-----|
+B|---1---1---|
+
+
+[Grid]
+| G . . . | C . . . |
+
