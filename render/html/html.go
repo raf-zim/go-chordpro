@@ -197,8 +197,8 @@ func (r *Renderer) writeLine(w *bufio.Writer, line ast.Line) {
 		switch v := t.(type) {
 		case ast.Chord:
 			lyric := nextLyric(line.Tokens, i+1)
-			fmt.Fprintf(w, `<span class="pair"><span class="chord">%s</span><span class="lyric">%s</span></span>`,
-				html.EscapeString(r.transposeText(v.Raw)),
+			fmt.Fprintf(w, `<span class="pair"><span class="chord" data-chord="%s">%s</span><span class="lyric">%s</span></span>`,
+				html.EscapeString(r.transposeText(v.Raw)), html.EscapeString(r.transposeText(v.Raw)),
 				escapeLyric(lyric))
 			i = consumeLyric(line.Tokens, i+1)
 		case ast.Annotation:

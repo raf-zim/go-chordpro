@@ -1,2 +1,4 @@
 # Golden test files are compared byte for byte: never convert line endings.
 render/testdata/golden/* -text
+# chords-db data: keep byte-exact
+chordlib/guitar.json -text

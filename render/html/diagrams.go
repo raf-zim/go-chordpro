@@ -30,18 +30,18 @@ func (r *Renderer) writeDiagrams(w *bufio.Writer, song *ast.Song) {
 	fmt.Fprintln(w, `  <p class="section-label">Chords</p>`)
 	fmt.Fprintln(w, `  <div class="diagrams">`)
 	for _, d := range song.Definitions {
-		fmt.Fprintf(w, "    <figure class=\"diagram\">%s<figcaption>%s</figcaption></figure>\n", diagramSVG(d), html.EscapeString(d.Name))
+		fmt.Fprintf(w, "    <figure class=\"diagram\">%s<figcaption>%s</figcaption></figure>\n", DiagramSVG(d), html.EscapeString(d.Name))
 	}
 	fmt.Fprintln(w, `  </div>`)
 	fmt.Fprintln(w, `</section>`)
 }
 
-// diagramSVG draws a chord shape: strings left (lowest) to right, frets top
+// DiagramSVG draws a chord shape: strings left (lowest) to right, frets top
 // to bottom, a thick nut at fret 1 or the base-fret number beside the first
 // row, ○ for open and × for muted strings, and a dot per fretted string.
 // It uses presentation attributes only (no style attributes) and
 // currentColor, so a page's CSS decides the colour.
-func diagramSVG(d ast.ChordDefinition) string {
+func DiagramSVG(d ast.ChordDefinition) string {
 	strings := len(d.Frets)
 	rows := minFretRows
 	for _, f := range d.Frets {
