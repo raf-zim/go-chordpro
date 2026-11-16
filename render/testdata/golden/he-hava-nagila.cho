@@ -1,0 +1,21 @@
+{title: הבה נגילה}
+{subtitle: Hava Nagila}
+{artist: עממי}
+{composer: אברהם צבי אידלסון}
+{year: 1918}
+{meta: language Hebrew}
+{key: Dm}
+# Traditional; lyrics by A. Z. Idelsohn (1882–1938), public domain. Chords made up for testing.
+{comment: פעמיים}
+
+{start_of_verse}
+[Dm]הָבָה נָגִי[Gm]לָה, הָבָה נָגִי[Dm]לָה
+[Dm]הָבָה נָגִילָה וְנִשְׂ[A7]מְחָה
+{end_of_verse}
+
+{start_of_chorus: פזמון}
+[Dm]עוּרוּ, [Gm]עוּרוּ אַ[Dm]חִים
+[A7]עוּרוּ אַחִים בְּלֵב שָׂ[Dm]מֵחַ
+{end_of_chorus}
+
+{chorus}

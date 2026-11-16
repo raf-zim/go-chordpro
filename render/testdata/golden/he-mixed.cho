@@ -1,0 +1,14 @@
+{title: שיר בדיקה / A Test Song}
+{artist: Test Band}
+{meta: language Hebrew}
+# Made up for testing: Hebrew and English lines, punctuation, slash chords.
+
+{c: בית ראשון / First verse}
+[A/F#]שלום, [C#m7]מה נשמע? [G]הכל בסדר.
+[D]Hello there, [Bm]how are [G]you?
+[D]שורה עם [A]English in the middle, [Bm]וחזרה לעברית!
+[Em]123 [A7]מספרים: 4, 5, 6.
+
+{soc: פזמון / Chorus}
+[G]לא ב[D]דיוק, [Em]not really [C]sure
+{eoc}

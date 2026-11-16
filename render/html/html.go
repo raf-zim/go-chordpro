@@ -48,7 +48,12 @@ func (r *Renderer) Render(w io.Writer, song *ast.Song) error {
 
 	title := song.MetaFirst("title")
 	fmt.Fprintln(bw, `<!DOCTYPE html>`)
-	fmt.Fprintln(bw, `<html lang="en">`)
+	dir := songDir(song)
+	if dir == "rtl" {
+		fmt.Fprintf(bw, "<html lang=%q dir=\"rtl\">\n", songLang(song))
+	} else {
+		fmt.Fprintln(bw, `<html lang="en">`)
+	}
 	fmt.Fprintln(bw, `<head>`)
 	fmt.Fprintln(bw, `<meta charset="utf-8">`)
 	if title != "" {
@@ -62,10 +67,14 @@ func (r *Renderer) Render(w io.Writer, song *ast.Song) error {
 	fmt.Fprintln(bw, `</head>`)
 	fmt.Fprintln(bw, `<body>`)
 
-	r.writeHeader(bw, song)
+	r.writeHeader(bw, song, dir)
 	r.writeDiagrams(bw, song)
 
-	fmt.Fprintln(bw, `<main>`)
+	if dir == "rtl" {
+		fmt.Fprintln(bw, `<main dir="rtl">`)
+	} else {
+		fmt.Fprintln(bw, `<main>`)
+	}
 	var lastChorus *ast.Section
 	for _, it := range song.Items {
 		switch v := it.(type) {
@@ -93,20 +102,24 @@ func (r *Renderer) Render(w io.Writer, song *ast.Song) error {
 	return nil
 }
 
-func (r *Renderer) writeHeader(w *bufio.Writer, song *ast.Song) {
+func (r *Renderer) writeHeader(w *bufio.Writer, song *ast.Song, dir string) {
 	if !hasAny(song, "title", "subtitle", "artist", "key", "capo") {
 		return
 	}
-	fmt.Fprintln(w, `<header>`)
+	if dir == "rtl" {
+		fmt.Fprintln(w, `<header dir="rtl">`)
+	} else {
+		fmt.Fprintln(w, `<header>`)
+	}
 	if t := song.MetaFirst("title"); t != "" {
-		fmt.Fprintf(w, "  <h1>%s</h1>\n", html.EscapeString(t))
+		fmt.Fprintf(w, "  <h1 dir=\"auto\">%s</h1>\n", html.EscapeString(t))
 	}
 	if st := song.MetaFirst("subtitle"); st != "" {
-		fmt.Fprintf(w, "  <p class=\"subtitle\">%s</p>\n", html.EscapeString(st))
+		fmt.Fprintf(w, "  <p class=\"subtitle\" dir=\"auto\">%s</p>\n", html.EscapeString(st))
 	}
 	var meta []string
 	if a := song.MetaFirst("artist"); a != "" {
-		meta = append(meta, "Artist: "+html.EscapeString(a))
+		meta = append(meta, "Artist: <bdi>"+html.EscapeString(a)+"</bdi>")
 	}
 	if k := song.MetaFirst("key"); k != "" {
 		shown := k
@@ -115,10 +128,10 @@ func (r *Renderer) writeHeader(w *bufio.Writer, song *ast.Song) {
 				shown = c.Transpose(r.Transpose, chord.PreferAuto).String()
 			}
 		}
-		meta = append(meta, "Key: "+html.EscapeString(shown))
+		meta = append(meta, "Key: <bdi>"+html.EscapeString(shown)+"</bdi>")
 	}
 	if c := song.MetaFirst("capo"); c != "" {
-		meta = append(meta, "Capo: "+html.EscapeString(c))
+		meta = append(meta, "Capo: <bdi>"+html.EscapeString(c)+"</bdi>")
 	}
 	if len(meta) > 0 {
 		fmt.Fprintf(w, "  <p class=\"meta\">%s</p>\n", strings.Join(meta, " &middot; "))
@@ -139,7 +152,7 @@ func (r *Renderer) writeSection(w *bufio.Writer, sec *ast.Section) {
 	class := string(sec.Kind)
 	fmt.Fprintf(w, "<section class=%q>\n", class)
 	if label := sectionLabel(sec); label != "" {
-		fmt.Fprintf(w, "  <p class=\"section-label\">%s</p>\n", html.EscapeString(label))
+		fmt.Fprintf(w, "  <p class=\"section-label\" dir=\"auto\">%s</p>\n", html.EscapeString(label))
 	}
 	if sec.Kind == ast.SectionTab {
 		fmt.Fprintln(w, "  <pre>")
@@ -186,10 +199,10 @@ func (r *Renderer) writeFreeLine(w *bufio.Writer, line ast.Line) {
 // with the lyric run that follows it so they stack visually via CSS.
 func (r *Renderer) writeLine(w *bufio.Writer, line ast.Line) {
 	if len(line.Tokens) == 0 {
-		fmt.Fprintln(w, `  <p class="line">&nbsp;</p>`)
+		fmt.Fprintln(w, `  <p class="line" dir="auto">&nbsp;</p>`)
 		return
 	}
-	fmt.Fprint(w, `  <p class="line">`)
+	fmt.Fprint(w, `  <p class="line" dir="auto">`)
 	// Walk tokens, emitting a "pair" wrapper for each (chord-or-annotation, optional-lyric-run).
 	i := 0
 	for i < len(line.Tokens) {
@@ -197,7 +210,7 @@ func (r *Renderer) writeLine(w *bufio.Writer, line ast.Line) {
 		switch v := t.(type) {
 		case ast.Chord:
 			lyric := nextLyric(line.Tokens, i+1)
-			fmt.Fprintf(w, `<span class="pair"><span class="chord" data-chord="%s">%s</span><span class="lyric">%s</span></span>`,
+			fmt.Fprintf(w, `<span class="pair"><span class="chord" dir="ltr" data-chord="%s">%s</span><span class="lyric">%s</span></span>`,
 				html.EscapeString(r.transposeText(v.Raw)), html.EscapeString(r.transposeText(v.Raw)),
 				escapeLyric(lyric))
 			i = consumeLyric(line.Tokens, i+1)
@@ -257,7 +270,7 @@ func (r *Renderer) writeComment(w *bufio.Writer, c ast.Comment) {
 	case ast.CommentBox:
 		class += " box"
 	}
-	fmt.Fprintf(w, "<p class=%q>%s</p>\n", class, html.EscapeString(c.Text))
+	fmt.Fprintf(w, "<p class=%q dir=\"auto\">%s</p>\n", class, html.EscapeString(c.Text))
 }
 
 func (r *Renderer) transposeText(raw string) string {

@@ -28,8 +28,8 @@ func TestBasicDocument(t *testing.T) {
 		"<!DOCTYPE html>",
 		"<title>Test</title>",
 		"<style>",
-		"<h1>Test</h1>",
-		`<span class="chord" data-chord="C">C</span>`,
+		`<h1 dir="auto">Test</h1>`,
+		`<span class="chord" dir="ltr" data-chord="C">C</span>`,
 		`<span class="lyric">Hello</span>`,
 	} {
 		if !strings.Contains(got, want) {
@@ -74,10 +74,10 @@ func TestTabAsPre(t *testing.T) {
 
 func TestTransposeKey(t *testing.T) {
 	got := renderString(t, "{key: C}\n[C]hi", render.Options{Transpose: 2})
-	if !strings.Contains(got, "Key: D") {
+	if !strings.Contains(got, "Key: <bdi>D</bdi>") {
 		t.Errorf("key not transposed in html meta:\n%s", got)
 	}
-	if !strings.Contains(got, `<span class="chord" data-chord="D">D</span>`) {
+	if !strings.Contains(got, `<span class="chord" dir="ltr" data-chord="D">D</span>`) {
 		t.Errorf("chord not transposed:\n%s", got)
 	}
 }
