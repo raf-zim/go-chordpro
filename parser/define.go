@@ -13,13 +13,18 @@ import (
 //	name N f1 f2 …                                    (the older form)
 //
 // Frets are numbers, 0 for open, or x / X / - / -1 / N for muted.
-// base-fret 0 is taken as 1. It reports false for anything it can't read.
+// base-fret 0 is taken as 1. A colon right after the name ("Em7/B:") is
+// dropped. It reports false for anything it can't read.
 func parseDefine(value string) (ast.ChordDefinition, bool) {
 	f := strings.Fields(value)
 	if len(f) < 2 {
 		return ast.ChordDefinition{}, false
 	}
-	d := ast.ChordDefinition{Name: f[0], BaseFret: 1}
+	name := strings.TrimSuffix(f[0], ":")
+	if name == "" {
+		return ast.ChordDefinition{}, false
+	}
+	d := ast.ChordDefinition{Name: name, BaseFret: 1}
 	rest := f[1:]
 	if isKeyword(rest[0]) {
 		var list *[]int

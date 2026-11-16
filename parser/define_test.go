@@ -17,6 +17,9 @@ func TestDefineForms(t *testing.T) {
 		{"{define: A/D base-fret 1 frets x x 0 2 2 0}", ast.ChordDefinition{Name: "A/D", BaseFret: 1, Frets: []int{-1, -1, 0, 2, 2, 0}}},
 		// Whitespace instead of a colon.
 		{"{define G base-fret 1 frets 3 2 0 0 3 3}", ast.ChordDefinition{Name: "G", BaseFret: 1, Frets: []int{3, 2, 0, 0, 3, 3}}},
+		// A colon after the name is not part of it (seen in the wild).
+		{"{define Em7/B: base-fret 1 frets - 2 0 0 3 0}", ast.ChordDefinition{Name: "Em7/B", BaseFret: 1, Frets: []int{-1, 2, 0, 0, 3, 0}}},
+		{"{define: E9: 7 - 1 3 1 1 1}", ast.ChordDefinition{Name: "E9", BaseFret: 7, Frets: []int{-1, 1, 3, 1, 1, 1}}},
 		// base-fret 0 means the first fret.
 		{"{define: C/E base-fret 0 frets 0 3 2 0 1 0}", ast.ChordDefinition{Name: "C/E", BaseFret: 1, Frets: []int{0, 3, 2, 0, 1, 0}}},
 		// The older form: base fret, then one number per string; - and -1 mute.
