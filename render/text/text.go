@@ -25,6 +25,7 @@ func (r *Renderer) Render(w io.Writer, song *ast.Song) error {
 	bw := bufio.NewWriter(w)
 	defer bw.Flush()
 	r.writeHeader(bw, song)
+	r.writeDefinitions(bw, song)
 
 	var lastChorus *ast.Section
 	for _, it := range song.Items {

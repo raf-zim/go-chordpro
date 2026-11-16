@@ -9,6 +9,9 @@ type Song struct {
 	// Items is the ordered body content: sections, free lines outside sections,
 	// stray directives, and comments.
 	Items []Item
+	// Definitions are the chord shapes from {define}, in order of first
+	// definition (a later {define} of the same name replaces the shape).
+	Definitions []ChordDefinition
 }
 
 // MetaFirst returns the first value for key, or "" if absent.
@@ -110,3 +113,16 @@ type TabLine struct {
 type ChorusRef struct{}
 
 func (ChorusRef) isItem() {}
+
+// ChordDefinition is a chord shape from {define}, drawn as a chord diagram.
+type ChordDefinition struct {
+	Name string
+	// BaseFret is the fret the diagram starts at (1 = the nut).
+	BaseFret int
+	// Frets has one entry per string, lowest string first: the fret
+	// counted from BaseFret (1 = BaseFret itself), 0 for an open string,
+	// or -1 for a muted string.
+	Frets []int
+	// Fingers, when given, has one entry per string (0 = no finger).
+	Fingers []int
+}

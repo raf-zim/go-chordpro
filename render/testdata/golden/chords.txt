@@ -1,0 +1,15 @@
+Chord Diagrams
+==============
+
+Chords:
+  Am      x 0 2 2 1 0
+  C#m     base-fret 4: 1 1 3 3 2 1
+  D9      base-fret 4: 2 2 2 1 2 x
+  G#m7-5  2 1 1 0 x x
+  Uke-C   0 0 0 3
+
+
+Am         C#m   D9
+Shapes for every chord
+G#m7-5       Uke-C
+Even the odd ones

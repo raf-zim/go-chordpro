@@ -1,0 +1,10 @@
+{title: Chord Diagrams}
+{define: Am base-fret 1 frets x 0 2 2 1 0}
+{define C#m base-fret 4 frets 1 1 3 3 2 1}
+{define: D9 4 2 2 2 1 2 -1}
+{define: G#m7-5 1 2 1 1 0 - -}
+{define: Uke-C base-fret 1 frets 0 0 0 3}
+{define: not a chord}
+
+[Am]Shapes for [C#m]every [D9]chord
+[G#m7-5]Even the odd [Uke-C]ones

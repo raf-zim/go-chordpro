@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Chord Diagrams</title>
+<style>
+body { font-family: system-ui, sans-serif; max-width: 48rem; margin: 2rem auto; padding: 0 1rem; color: #222; }
+header h1 { margin-bottom: 0.2em; }
+header .meta { color: #555; font-size: 0.9em; }
+section { margin: 1.2em 0; }
+section.chorus { font-style: italic; border-left: 3px solid #ccc; padding-left: 0.8em; }
+section.tab pre { background: #f6f6f6; padding: 0.6em; border-radius: 4px; overflow-x: auto; }
+.section-label { font-weight: 600; color: #555; margin-bottom: 0.3em; }
+p.line { margin: 0 0 0.6em 0; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; line-height: 1.1; white-space: pre-wrap; }
+p.line .pair { display: inline-flex; flex-direction: column; align-items: flex-start; vertical-align: bottom; }
+p.line .chord { color: #b00; font-weight: 600; }
+p.line .annotation { color: #06c; font-style: italic; }
+p.line .lyric { white-space: pre; }
+p.comment { margin: 0.4em 0; color: #555; }
+p.comment.italic { font-style: italic; }
+p.comment.box { border: 1px solid #aaa; padding: 0.3em 0.6em; display: inline-block; }
+.chord-diagrams .diagrams { display: flex; flex-wrap: wrap; gap: 0.6em 1em; }
+.chord-diagrams figure { margin: 0; text-align: center; }
+.chord-diagrams figcaption { font-weight: 600; font-size: 0.9em; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Chord Diagrams</h1>
+</header>
+<section class="chord-diagrams">
+  <p class="section-label">Chords</p>
+  <div class="diagrams">
+    <figure class="diagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 74 64" width="74" height="64" role="img" aria-label="Chord diagram: Am" fill="none" stroke="currentColor" stroke-width="1"><line x1="12" y1="12" x2="62" y2="12"/><line x1="12" y1="24" x2="62" y2="24"/><line x1="12" y1="36" x2="62" y2="36"/><line x1="12" y1="48" x2="62" y2="48"/><line x1="12" y1="60" x2="62" y2="60"/><line x1="12" y1="12" x2="12" y2="60"/><line x1="22" y1="12" x2="22" y2="60"/><line x1="32" y1="12" x2="32" y2="60"/><line x1="42" y1="12" x2="42" y2="60"/><line x1="52" y1="12" x2="52" y2="60"/><line x1="62" y1="12" x2="62" y2="60"/><line class="nut" x1="12" y1="12" x2="62" y2="12" stroke-width="3"/><path class="muted" d="M10 4 L14 8 M10 8 L14 4"/><circle class="open" cx="22" cy="6" r="2.5"/><circle class="dot" cx="32" cy="30" r="3.5" fill="currentColor" stroke="none"/><circle class="dot" cx="42" cy="30" r="3.5" fill="currentColor" stroke="none"/><circle class="dot" cx="52" cy="18" r="3.5" fill="currentColor" stroke="none"/><circle class="open" cx="62" cy="6" r="2.5"/></svg><figcaption>Am</figcaption></figure>
+    <figure class="diagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 74 64" width="74" height="64" role="img" aria-label="Chord diagram: C#m" fill="none" stroke="currentColor" stroke-width="1"><line x1="12" y1="12" x2="62" y2="12"/><line x1="12" y1="24" x2="62" y2="24"/><line x1="12" y1="36" x2="62" y2="36"/><line x1="12" y1="48" x2="62" y2="48"/><line x1="12" y1="60" x2="62" y2="60"/><line x1="12" y1="12" x2="12" y2="60"/><line x1="22" y1="12" x2="22" y2="60"/><line x1="32" y1="12" x2="32" y2="60"/><line x1="42" y1="12" x2="42" y2="60"/><line x1="52" y1="12" x2="52" y2="60"/><line x1="62" y1="12" x2="62" y2="60"/><text class="base-fret" x="8" y="21" text-anchor="end" font-size="8" font-family="sans-serif" fill="currentColor" stroke="none">4</text><circle class="dot" cx="12" cy="18" r="3.5" fill="currentColor" stroke="none"/><circle class="dot" cx="22" cy="18" r="3.5" fill="currentColor" stroke="none"/><circle class="dot" cx="32" cy="42" r="3.5" fill="currentColor" stroke="none"/><circle class="dot" cx="42" cy="42" r="3.5" fill="currentColor" stroke="none"/><circle class="dot" cx="52" cy="30" r="3.5" fill="currentColor" stroke="none"/><circle class="dot" cx="62" cy="18" r="3.5" fill="currentColor" stroke="none"/></svg><figcaption>C#m</figcaption></figure>
+    <figure class="diagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 74 64" width="74" height="64" role="img" aria-label="Chord diagram: D9" fill="none" stroke="currentColor" stroke-width="1"><line x1="12" y1="12" x2="62" y2="12"/><line x1="12" y1="24" x2="62" y2="24"/><line x1="12" y1="36" x2="62" y2="36"/><line x1="12" y1="48" x2="62" y2="48"/><line x1="12" y1="60" x2="62" y2="60"/><line x1="12" y1="12" x2="12" y2="60"/><line x1="22" y1="12" x2="22" y2="60"/><line x1="32" y1="12" x2="32" y2="60"/><line x1="42" y1="12" x2="42" y2="60"/><line x1="52" y1="12" x2="52" y2="60"/><line x1="62" y1="12" x2="62" y2="60"/><text class="base-fret" x="8" y="21" text-anchor="end" font-size="8" font-family="sans-serif" fill="currentColor" stroke="none">4</text><circle class="dot" cx="12" cy="30" r="3.5" fill="currentColor" stroke="none"/><circle class="dot" cx="22" cy="30" r="3.5" fill="currentColor" stroke="none"/><circle class="dot" cx="32" cy="30" r="3.5" fill="currentColor" stroke="none"/><circle class="dot" cx="42" cy="18" r="3.5" fill="currentColor" stroke="none"/><circle class="dot" cx="52" cy="30" r="3.5" fill="currentColor" stroke="none"/><path class="muted" d="M60 4 L64 8 M60 8 L64 4"/></svg><figcaption>D9</figcaption></figure>
+    <figure class="diagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 74 64" width="74" height="64" role="img" aria-label="Chord diagram: G#m7-5" fill="none" stroke="currentColor" stroke-width="1"><line x1="12" y1="12" x2="62" y2="12"/><line x1="12" y1="24" x2="62" y2="24"/><line x1="12" y1="36" x2="62" y2="36"/><line x1="12" y1="48" x2="62" y2="48"/><line x1="12" y1="60" x2="62" y2="60"/><line x1="12" y1="12" x2="12" y2="60"/><line x1="22" y1="12" x2="22" y2="60"/><line x1="32" y1="12" x2="32" y2="60"/><line x1="42" y1="12" x2="42" y2="60"/><line x1="52" y1="12" x2="52" y2="60"/><line x1="62" y1="12" x2="62" y2="60"/><line class="nut" x1="12" y1="12" x2="62" y2="12" stroke-width="3"/><circle class="dot" cx="12" cy="30" r="3.5" fill="currentColor" stroke="none"/><circle class="dot" cx="22" cy="18" r="3.5" fill="currentColor" stroke="none"/><circle class="dot" cx="32" cy="18" r="3.5" fill="currentColor" stroke="none"/><circle class="open" cx="42" cy="6" r="2.5"/><path class="muted" d="M50 4 L54 8 M50 8 L54 4"/><path class="muted" d="M60 4 L64 8 M60 8 L64 4"/></svg><figcaption>G#m7-5</figcaption></figure>
+    <figure class="diagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 54 64" width="54" height="64" role="img" aria-label="Chord diagram: Uke-C" fill="none" stroke="currentColor" stroke-width="1"><line x1="12" y1="12" x2="42" y2="12"/><line x1="12" y1="24" x2="42" y2="24"/><line x1="12" y1="36" x2="42" y2="36"/><line x1="12" y1="48" x2="42" y2="48"/><line x1="12" y1="60" x2="42" y2="60"/><line x1="12" y1="12" x2="12" y2="60"/><line x1="22" y1="12" x2="22" y2="60"/><line x1="32" y1="12" x2="32" y2="60"/><line x1="42" y1="12" x2="42" y2="60"/><line class="nut" x1="12" y1="12" x2="42" y2="12" stroke-width="3"/><circle class="open" cx="12" cy="6" r="2.5"/><circle class="open" cx="22" cy="6" r="2.5"/><circle class="open" cx="32" cy="6" r="2.5"/><circle class="dot" cx="42" cy="42" r="3.5" fill="currentColor" stroke="none"/></svg><figcaption>Uke-C</figcaption></figure>
+  </div>
+</section>
+<main>
+  <p class="line">&nbsp;</p>
+  <p class="line"><span class="pair"><span class="chord">Am</span><span class="lyric">Shapes for </span></span><span class="pair"><span class="chord">C#m</span><span class="lyric">every </span></span><span class="pair"><span class="chord">D9</span><span class="lyric">chord</span></span></p>
+  <p class="line"><span class="pair"><span class="chord">G#m7-5</span><span class="lyric">Even the odd </span></span><span class="pair"><span class="chord">Uke-C</span><span class="lyric">ones</span></span></p>
+</main>
+</body></html>

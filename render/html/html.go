@@ -36,6 +36,9 @@ p.line .lyric { white-space: pre; }
 p.comment { margin: 0.4em 0; color: #555; }
 p.comment.italic { font-style: italic; }
 p.comment.box { border: 1px solid #aaa; padding: 0.3em 0.6em; display: inline-block; }
+.chord-diagrams .diagrams { display: flex; flex-wrap: wrap; gap: 0.6em 1em; }
+.chord-diagrams figure { margin: 0; text-align: center; }
+.chord-diagrams figcaption { font-weight: 600; font-size: 0.9em; }
 `
 
 // Render writes the song to w as an HTML5 document.
@@ -60,6 +63,7 @@ func (r *Renderer) Render(w io.Writer, song *ast.Song) error {
 	fmt.Fprintln(bw, `<body>`)
 
 	r.writeHeader(bw, song)
+	r.writeDiagrams(bw, song)
 
 	fmt.Fprintln(bw, `<main>`)
 	var lastChorus *ast.Section

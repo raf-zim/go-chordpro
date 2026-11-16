@@ -111,10 +111,17 @@ func wholeLineDirective(raw string) (name, value string, ok bool) {
 	if strings.ContainsAny(inner, "{}") {
 		return "", "", false
 	}
-	if i := strings.IndexByte(inner, ':'); i >= 0 {
-		return strings.TrimSpace(inner[:i]), strings.TrimSpace(inner[i+1:]), true
+	// The name ends at a colon or, as the ChordPro spec allows, at the
+	// first whitespace: {title: X} and {title X} are the same.
+	inner = strings.TrimSpace(inner)
+	if i := strings.IndexAny(inner, ": \t"); i >= 0 {
+		name, value := inner[:i], strings.TrimSpace(inner[i+1:])
+		if inner[i] != ':' {
+			value = strings.TrimSpace(strings.TrimPrefix(value, ":")) // {title : X}
+		}
+		return name, value, true
 	}
-	return strings.TrimSpace(inner), "", true
+	return inner, "", true
 }
 
 // directiveAlias maps short directive names to their canonical form.
@@ -191,6 +198,11 @@ func (p *parser) handleDirective(name, value string) {
 	case canon == "comment_box":
 		p.appendItem(ast.Comment{Text: value, Style: ast.CommentBox})
 		return
+	case canon == "define":
+		if d, ok := parseDefine(value); ok {
+			addDefinition(p.song, d)
+			return
+		}
 	case canon == "chorus":
 		// Bare {chorus} asks the renderer to repeat the most recent chorus.
 		p.appendItem(ast.ChorusRef{})
